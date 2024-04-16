@@ -1,42 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_calc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjina <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 15:04:57 by mjina             #+#    #+#             */
+/*   Updated: 2024/04/16 15:04:58 by mjina            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-int get_closest_move(int i, int size)
+int	get_closest_move(int i, int size)
 {
-    if (i <= size / 2)
-        return (i);
-    return (i - size);
+	if (i <= size / 2)
+		return (i);
+	return (i - size);
 }
 
-int get_position_in_a(int val, t_stack *a)
+int	get_position_in_a(int val, t_stack *a)
 {
-    int     i;
-    int     size_a;
-    int     stack_min;
-    t_stack *tmp;
-    t_stack *prev;
+	int		i;
+	int		size_a;
+	int		stack_min;
+	t_stack	*tmp;
+	t_stack	*prev;
 
-    i = get_stack_max_elem(a);
-    tmp = a->next;
-    prev = a;
-    size_a = get_stack_size(a);
-    stack_min = get_stack_min_elem(a);
-    if (val > i)
-        return (get_closest_move(get_stack_val_index(a, i), size_a) + 1);
-    if (val < stack_min)
-        return (get_closest_move(get_stack_val_index(a, stack_min), size_a));
-    i = 1;
-    while (tmp)
-    {
-        if (tmp->value > val && prev->value < val)
-            return (get_closest_move(i, size_a));
-        prev = tmp;
-        tmp = tmp->next;
-        i++;
-    }
-    return (get_closest_move(i, size_a));
+	i = get_stack_max_elem(a);
+	tmp = a->next;
+	prev = a;
+	size_a = get_stack_size(a);
+	stack_min = get_stack_min_elem(a);
+	if (val > i)
+		return (get_closest_move(get_stack_val_index(a, i), size_a) + 1);
+	if (val < stack_min)
+		return (get_closest_move(get_stack_val_index(a, stack_min), size_a));
+	i = 1;
+	while (tmp)
+	{
+		if (tmp->value > val && prev->value < val)
+			return (get_closest_move(i, size_a));
+		prev = tmp;
+		tmp = tmp->next;
+		i++;
+	}
+	return (get_closest_move(i, size_a));
 }
 
-t_move_price    *get_move_price(t_stack *a, t_stack *b, int *t_size)
+t_move_price	*get_move_price(t_stack *a, t_stack *b, int *t_size)
 {
 	t_stack			*tmp;
 	t_move_price	*ret;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small_sizes.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjina <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 15:07:57 by mjina             #+#    #+#             */
+/*   Updated: 2024/04/16 15:07:58 by mjina            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	sort_two_values(t_stack **a)
@@ -8,7 +20,7 @@ void	sort_two_values(t_stack **a)
 
 void	sort_three_values(t_stack **a)
 {
-	t_stack *t_mid;
+	t_stack	*t_mid;
 	int		bot;
 	int		top;
 	int		mid;
@@ -68,6 +80,6 @@ void	sort_small_sizes(t_stack **a, t_stack **b, int argc)
 		sort_two_values(a);
 	else if (argc == 4)
 		sort_three_values(a);
-	else if (argc > 5 && argc <= 7)
+	else if (argc >= 5 && argc <= 7)
 		sort_four_to_six_values(a, b);
 }

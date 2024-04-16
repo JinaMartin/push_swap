@@ -74,7 +74,6 @@ int				get_stack_min_elem(t_stack *stack);
 int				get_stack_max_elem(t_stack *stack);
 int				*get_list(int *arr, int size, int *list_size, int i);
 int				*list_sub(int size, int list_len, int *arr, int *index);
-// static int		search_replace(int *list, int left, int right, int key);
 t_stack			*init_stack_a(int argc, char **argv);
 t_stack			*copy_stack(t_stack *src);
 t_stack			*new_stack(int value);

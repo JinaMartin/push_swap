@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_manipulation.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjina <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 15:09:12 by mjina             #+#    #+#             */
+/*   Updated: 2024/04/16 15:09:13 by mjina            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	get_stack_min_elem(t_stack *stack)
@@ -18,7 +30,7 @@ int	get_stack_min_elem(t_stack *stack)
 
 int	get_stack_max_elem(t_stack *stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		min;
 
 	tmp = stack;
@@ -55,7 +67,7 @@ void	put_min_element_on_top(t_stack **stack)
 	{
 		while (i < ind)
 		{
-			reverse_rotate(stack);
+			rotate(stack);
 			i++;
 		}
 	}

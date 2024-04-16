@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_errors.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjina <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 15:08:22 by mjina             #+#    #+#             */
+/*   Updated: 2024/04/16 15:08:23 by mjina            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	check_duplicates(t_stack *stack, int val)
@@ -39,7 +51,7 @@ int	check_sorted(t_stack *stack)
 	tmp = stack;
 	while (tmp->next != NULL)
 	{
-		if (tmp ->value > tmp->next->value)
+		if (tmp->value > tmp->next->value)
 			return (0);
 		tmp = tmp->next;
 	}

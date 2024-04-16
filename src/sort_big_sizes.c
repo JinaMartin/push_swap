@@ -1,55 +1,67 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_big_sizes.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjina <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/16 15:07:07 by mjina             #+#    #+#             */
+/*   Updated: 2024/04/16 15:07:08 by mjina            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void    pick_sub(t_move_price *t, t_stack **a, t_stack **b)
+void	pick_sub(t_move_price *t, t_stack **a, t_stack **b)
 {
-    if (t->move_count[0] > 0)
-    {
-        ra(a);
-        t->move_count[0] -= 1;
-    }
-    if (t->move_count[0] < 0)
-    {
-        rra(a);
-        t->move_count[0] += 1;
-    }
-    if (t->move_count[1] > 0)
-    {
-        rb(b);
-        t->move_count[1] -= 1;
-    }
-    if (t->move_count[1] < 0)
-    {
-        rrb(b);
-        t->move_count[1] +=1;
-    }
+	if (t->move_count[0] > 0)
+	{
+		ra(a);
+		t->move_count[0] -= 1;
+	}
+	if (t->move_count[0] < 0)
+	{
+		rra(a);
+		t->move_count[0] += 1;
+	}
+	if (t->move_count[1] > 0)
+	{
+		rb(b);
+		t->move_count[1] -= 1;
+	}
+	if (t->move_count[1] < 0)
+	{
+		rrb(b);
+		t->move_count[1] += 1;
+	}
 }
 
-void    pick_move(t_move_price t, t_stack **a, t_stack **b)
+void	pick_move(t_move_price t, t_stack **a, t_stack **b)
 {
-    while (t.move_count[0] != 0 || t.move_count[1] != 0)
-    {
-        if (t.move_count[0] > 0 && t.move_count[1] > 0)
-        {
-            rr(a, b);
-            t.move_count[0] -= 1;
-            t.move_count[1] -= 1;
-        }
-        else if (t.move_count[0] < 0 && t.move_count[1] < 0)
-        {
-            rrr(a, b);
-            t.move_count[0] += 1;
-            t.move_count[1] += 1;
-        }
-        else
-            pick_sub(&t, a, b);
-    }
-    pa(a, b);
+	while (t.move_count[0] != 0 || t.move_count[1] != 0)
+	{
+		if (t.move_count[0] > 0 && t.move_count[1] > 0)
+		{
+			rr(a, b);
+			t.move_count[0] -= 1;
+			t.move_count[1] -= 1;
+		}
+		else if (t.move_count[0] < 0 && t.move_count[1] < 0)
+		{
+			rrr(a, b);
+			t.move_count[0] += 1;
+			t.move_count[1] += 1;
+		}
+		else
+			pick_sub(&t, a, b);
+	}
+	pa(a, b);
 }
 
-void    sort_big_sizes(t_stack **a, t_stack **b)
+void	sort_big_sizes(t_stack **a, t_stack **b)
 {
-    int         	size;
-    int				i;
+	int				size;
+	int				i;
 	int				size_a;
 	t_move_price	*t;
 
